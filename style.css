@@ -1,0 +1,22 @@
+body {
+    background-color: #1C1C1C;
+}
+
+h1, p {
+    text-align: center;
+    color: #DADDD8;
+    font-family: "Verdana", sans-serif;
+}
+
+#webgl {
+    width: calc(100vw - 150px);
+    height: calc(100vh - 150px);
+    margin: 0 auto;
+    border-width: 2.5px;
+    border-style: solid;
+    border-color: #DADDD8;
+}
+
+#render {
+    outline: none;
+}
