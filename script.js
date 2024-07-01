@@ -13,7 +13,7 @@ function main() {
     pointLight.position.y = 5;
     scene.add(pointLight);
 
-    // Modelos 3D 
+    //#region <MODELOS 3D>
     var loader = new GLTFLoader();
     // Ilhas
     loader.load("models/Island.glb", function(gltf) {
@@ -152,20 +152,116 @@ function main() {
         model.rotation.y = Math.PI/2;
         scene.add(model);
     });
-    // Caminhos
+    // Caminho 1
     loader.load("models/Grass Platform.glb", function(gltf) {
         var model = gltf.scene;
         applyPhongShading(model);
-        model.position.set(1, 1.2, -5);
+        model.position.set(1, 1.2, -4);
         scene.add(model);
     });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(2, 1, -3);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(3, 1, -2);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(4, 1.2, -1);
+        scene.add(model);
+    });
+    // Caminho 2
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(-1, 1.2, 4);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(-2, 1, 3);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(-3, 1, 2);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(-4, 1.2, 1);
+        scene.add(model);
+    });
+    // Caminho 3
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(1, 1.2, 4);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(2, 1, 3);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(3, 1, 2);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(4, 1.2, 1);
+        scene.add(model);
+    });
+    // Caminho 4
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(0, 1.2, -3.5);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(0, 1, -2.25);
+        scene.add(model);
+    });
+    loader.load("models/Grass Platform.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(0, 0.8, -1);
+        scene.add(model);
+    });
+    // Ilha do meio
+    loader.load("models/Flag.glb", function(gltf) {
+        var model = gltf.scene;
+        applyPhongShading(model);
+        model.position.set(0, 0.75, 0);
+        model.scale.set(0.2, 0.2, 0.2);
+        scene.add(model);
+    });
+    //#endregion
 
     // Câmera em perspectiva
     var camera = new THREE.PerspectiveCamera(45, width/height, 1, 1000);
     camera.position.set(5, 5, 5);
 
     // Renderizador WebGL para gerar a cena
-    var renderer = new THREE.WebGLRenderer();
+    var renderer = new THREE.WebGLRenderer( {antialias: true} );
     //renderer.shadowMap.enabled = true;
     renderer.setSize(width, height);
     renderer.setClearColor(0x2E86AB);
@@ -174,8 +270,6 @@ function main() {
 
     // Controle da câmera
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    //controls.target.set(0,0,0);
-    //controls.update();
     
     update(renderer, scene, camera, controls);
     return scene;
